@@ -7,18 +7,20 @@ myApp.config(function($routeProvider){
     .when('/', {
       templateUrl: 'partials/view1.html',
       controller: 'view1Controller',
+      controllerAs: 'c',
     })
     .when('/partial2',{
       templateUrl: 'partials/view2.html',
       controller: 'view2Controller',
+      controllerAs: 'c',
     })
     .otherwise({
       redirectTo: '/'
     });
 })
 
-myApp.controller('view1Controller', function($scope){
-  $scope.sports = [
+myApp.controller('view1Controller', function(){
+  this.sports = [
     'golf',
     'basketball',
     'hockey',
@@ -27,6 +29,6 @@ myApp.controller('view1Controller', function($scope){
   ];
 });
 
-myApp.controller('view2Controller', function($scope){
-   $scope.message = "We are using another controller";
+myApp.controller('view2Controller', function(){
+   this.message = "We are using another controller";
 });
